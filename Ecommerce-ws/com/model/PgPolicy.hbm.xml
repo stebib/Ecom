@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgPolicy" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_policy">
+        <composite-id class="com.model.PgPolicyId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="polname" type="string">
+                <column length="64" name="polname"/>
+            </key-property>
+            <key-property name="polrelid" type="int">
+                <column name="polrelid"/>
+            </key-property>
+            <key-property name="polcmd" type="serializable">
+                <column name="polcmd"/>
+            </key-property>
+            <key-property name="polroles" type="serializable">
+                <column name="polroles"/>
+            </key-property>
+            <key-property name="polqual" type="serializable">
+                <column name="polqual"/>
+            </key-property>
+            <key-property name="polwithcheck" type="serializable">
+                <column name="polwithcheck"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

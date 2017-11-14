@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgIndex" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_index">
+        <composite-id class="com.model.PgIndexId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="indexrelid" type="int">
+                <column name="indexrelid"/>
+            </key-property>
+            <key-property name="indrelid" type="int">
+                <column name="indrelid"/>
+            </key-property>
+            <key-property name="indnatts" type="short">
+                <column name="indnatts"/>
+            </key-property>
+            <key-property name="indisunique" type="boolean">
+                <column name="indisunique"/>
+            </key-property>
+            <key-property name="indisprimary" type="boolean">
+                <column name="indisprimary"/>
+            </key-property>
+            <key-property name="indisexclusion" type="boolean">
+                <column name="indisexclusion"/>
+            </key-property>
+            <key-property name="indimmediate" type="boolean">
+                <column name="indimmediate"/>
+            </key-property>
+            <key-property name="indisclustered" type="boolean">
+                <column name="indisclustered"/>
+            </key-property>
+            <key-property name="indisvalid" type="boolean">
+                <column name="indisvalid"/>
+            </key-property>
+            <key-property name="indcheckxmin" type="boolean">
+                <column name="indcheckxmin"/>
+            </key-property>
+            <key-property name="indisready" type="boolean">
+                <column name="indisready"/>
+            </key-property>
+            <key-property name="indislive" type="boolean">
+                <column name="indislive"/>
+            </key-property>
+            <key-property name="indisreplident" type="boolean">
+                <column name="indisreplident"/>
+            </key-property>
+            <key-property name="indkey" type="serializable">
+                <column name="indkey"/>
+            </key-property>
+            <key-property name="indcollation" type="serializable">
+                <column name="indcollation"/>
+            </key-property>
+            <key-property name="indclass" type="serializable">
+                <column name="indclass"/>
+            </key-property>
+            <key-property name="indoption" type="serializable">
+                <column name="indoption"/>
+            </key-property>
+            <key-property name="indexprs" type="serializable">
+                <column name="indexprs"/>
+            </key-property>
+            <key-property name="indpred" type="serializable">
+                <column name="indpred"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgConstraint" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_constraint">
+        <composite-id class="com.model.PgConstraintId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="conname" type="string">
+                <column length="64" name="conname"/>
+            </key-property>
+            <key-property name="connamespace" type="int">
+                <column name="connamespace"/>
+            </key-property>
+            <key-property name="contype" type="serializable">
+                <column name="contype"/>
+            </key-property>
+            <key-property name="condeferrable" type="boolean">
+                <column name="condeferrable"/>
+            </key-property>
+            <key-property name="condeferred" type="boolean">
+                <column name="condeferred"/>
+            </key-property>
+            <key-property name="convalidated" type="boolean">
+                <column name="convalidated"/>
+            </key-property>
+            <key-property name="conrelid" type="int">
+                <column name="conrelid"/>
+            </key-property>
+            <key-property name="contypid" type="int">
+                <column name="contypid"/>
+            </key-property>
+            <key-property name="conindid" type="int">
+                <column name="conindid"/>
+            </key-property>
+            <key-property name="confrelid" type="int">
+                <column name="confrelid"/>
+            </key-property>
+            <key-property name="confupdtype" type="serializable">
+                <column name="confupdtype"/>
+            </key-property>
+            <key-property name="confdeltype" type="serializable">
+                <column name="confdeltype"/>
+            </key-property>
+            <key-property name="confmatchtype" type="serializable">
+                <column name="confmatchtype"/>
+            </key-property>
+            <key-property name="conislocal" type="boolean">
+                <column name="conislocal"/>
+            </key-property>
+            <key-property name="coninhcount" type="int">
+                <column name="coninhcount"/>
+            </key-property>
+            <key-property name="connoinherit" type="boolean">
+                <column name="connoinherit"/>
+            </key-property>
+            <key-property name="conkey" type="serializable">
+                <column name="conkey"/>
+            </key-property>
+            <key-property name="confkey" type="serializable">
+                <column name="confkey"/>
+            </key-property>
+            <key-property name="conpfeqop" type="serializable">
+                <column name="conpfeqop"/>
+            </key-property>
+            <key-property name="conppeqop" type="serializable">
+                <column name="conppeqop"/>
+            </key-property>
+            <key-property name="conffeqop" type="serializable">
+                <column name="conffeqop"/>
+            </key-property>
+            <key-property name="conexclop" type="serializable">
+                <column name="conexclop"/>
+            </key-property>
+            <key-property name="conbin" type="serializable">
+                <column name="conbin"/>
+            </key-property>
+            <key-property name="consrc" type="string">
+                <column name="consrc"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgRange" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_range">
+        <composite-id class="com.model.PgRangeId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="rngtypid" type="int">
+                <column name="rngtypid"/>
+            </key-property>
+            <key-property name="rngsubtype" type="int">
+                <column name="rngsubtype"/>
+            </key-property>
+            <key-property name="rngcollation" type="int">
+                <column name="rngcollation"/>
+            </key-property>
+            <key-property name="rngsubopc" type="int">
+                <column name="rngsubopc"/>
+            </key-property>
+            <key-property name="rngcanonical" type="serializable">
+                <column name="rngcanonical"/>
+            </key-property>
+            <key-property name="rngsubdiff" type="serializable">
+                <column name="rngsubdiff"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

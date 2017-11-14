@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.Product" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="product">
+        <id name="idProduct" type="string">
+            <column length="64" name="ID_Product"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="64" name="Name"/>
+        </property>
+        <property generated="never" lazy="false" name="price" optimistic-lock="true" type="java.lang.Double" unique="false">
+            <column name="Price" precision="8" scale="0"/>
+        </property>
+    </class>
+</hibernate-mapping>

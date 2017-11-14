@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.Example" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="example">
+        <id name="aaa" type="string">
+            <column length="64" name="aaa"/>
+            <generator class="assigned"/>
+        </id>
+    </class>
+</hibernate-mapping>

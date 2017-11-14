@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgExtension" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_extension">
+        <composite-id class="com.model.PgExtensionId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="extname" type="string">
+                <column length="64" name="extname"/>
+            </key-property>
+            <key-property name="extowner" type="int">
+                <column name="extowner"/>
+            </key-property>
+            <key-property name="extnamespace" type="int">
+                <column name="extnamespace"/>
+            </key-property>
+            <key-property name="extrelocatable" type="boolean">
+                <column name="extrelocatable"/>
+            </key-property>
+            <key-property name="extversion" type="string">
+                <column name="extversion"/>
+            </key-property>
+            <key-property name="extconfig" type="serializable">
+                <column name="extconfig"/>
+            </key-property>
+            <key-property name="extcondition" type="serializable">
+                <column name="extcondition"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgAggregate" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_aggregate">
+        <composite-id class="com.model.PgAggregateId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="aggfnoid" type="serializable">
+                <column name="aggfnoid"/>
+            </key-property>
+            <key-property name="aggkind" type="serializable">
+                <column name="aggkind"/>
+            </key-property>
+            <key-property name="aggnumdirectargs" type="short">
+                <column name="aggnumdirectargs"/>
+            </key-property>
+            <key-property name="aggtransfn" type="serializable">
+                <column name="aggtransfn"/>
+            </key-property>
+            <key-property name="aggfinalfn" type="serializable">
+                <column name="aggfinalfn"/>
+            </key-property>
+            <key-property name="aggcombinefn" type="serializable">
+                <column name="aggcombinefn"/>
+            </key-property>
+            <key-property name="aggserialfn" type="serializable">
+                <column name="aggserialfn"/>
+            </key-property>
+            <key-property name="aggdeserialfn" type="serializable">
+                <column name="aggdeserialfn"/>
+            </key-property>
+            <key-property name="aggmtransfn" type="serializable">
+                <column name="aggmtransfn"/>
+            </key-property>
+            <key-property name="aggminvtransfn" type="serializable">
+                <column name="aggminvtransfn"/>
+            </key-property>
+            <key-property name="aggmfinalfn" type="serializable">
+                <column name="aggmfinalfn"/>
+            </key-property>
+            <key-property name="aggfinalextra" type="boolean">
+                <column name="aggfinalextra"/>
+            </key-property>
+            <key-property name="aggmfinalextra" type="boolean">
+                <column name="aggmfinalextra"/>
+            </key-property>
+            <key-property name="aggsortop" type="int">
+                <column name="aggsortop"/>
+            </key-property>
+            <key-property name="aggtranstype" type="int">
+                <column name="aggtranstype"/>
+            </key-property>
+            <key-property name="aggtransspace" type="int">
+                <column name="aggtransspace"/>
+            </key-property>
+            <key-property name="aggmtranstype" type="int">
+                <column name="aggmtranstype"/>
+            </key-property>
+            <key-property name="aggmtransspace" type="int">
+                <column name="aggmtransspace"/>
+            </key-property>
+            <key-property name="agginitval" type="string">
+                <column name="agginitval"/>
+            </key-property>
+            <key-property name="aggminitval" type="string">
+                <column name="aggminitval"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

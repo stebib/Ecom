@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgForeignTable" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_foreign_table">
+        <composite-id class="com.model.PgForeignTableId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="ftrelid" type="int">
+                <column name="ftrelid"/>
+            </key-property>
+            <key-property name="ftserver" type="int">
+                <column name="ftserver"/>
+            </key-property>
+            <key-property name="ftoptions" type="serializable">
+                <column name="ftoptions"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

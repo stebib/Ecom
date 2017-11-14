@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgRewrite" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_rewrite">
+        <composite-id class="com.model.PgRewriteId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="rulename" type="string">
+                <column length="64" name="rulename"/>
+            </key-property>
+            <key-property name="evClass" type="int">
+                <column name="ev_class"/>
+            </key-property>
+            <key-property name="evType" type="serializable">
+                <column name="ev_type"/>
+            </key-property>
+            <key-property name="evEnabled" type="serializable">
+                <column name="ev_enabled"/>
+            </key-property>
+            <key-property name="isInstead" type="boolean">
+                <column name="is_instead"/>
+            </key-property>
+            <key-property name="evQual" type="serializable">
+                <column name="ev_qual"/>
+            </key-property>
+            <key-property name="evAction" type="serializable">
+                <column name="ev_action"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgTsTemplate" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_ts_template">
+        <composite-id class="com.model.PgTsTemplateId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="tmplname" type="string">
+                <column length="64" name="tmplname"/>
+            </key-property>
+            <key-property name="tmplnamespace" type="int">
+                <column name="tmplnamespace"/>
+            </key-property>
+            <key-property name="tmplinit" type="serializable">
+                <column name="tmplinit"/>
+            </key-property>
+            <key-property name="tmpllexize" type="serializable">
+                <column name="tmpllexize"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

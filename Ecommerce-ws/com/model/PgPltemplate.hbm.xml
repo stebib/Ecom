@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgPltemplate" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_pltemplate">
+        <composite-id class="com.model.PgPltemplateId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="tmplname" type="string">
+                <column length="64" name="tmplname"/>
+            </key-property>
+            <key-property name="tmpltrusted" type="boolean">
+                <column name="tmpltrusted"/>
+            </key-property>
+            <key-property name="tmpldbacreate" type="boolean">
+                <column name="tmpldbacreate"/>
+            </key-property>
+            <key-property name="tmplhandler" type="string">
+                <column name="tmplhandler"/>
+            </key-property>
+            <key-property name="tmplinline" type="string">
+                <column name="tmplinline"/>
+            </key-property>
+            <key-property name="tmplvalidator" type="string">
+                <column name="tmplvalidator"/>
+            </key-property>
+            <key-property name="tmpllibrary" type="string">
+                <column name="tmpllibrary"/>
+            </key-property>
+            <key-property name="tmplacl" type="serializable">
+                <column name="tmplacl"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Nov 11, 2017 10:37:02 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.PgProc" optimistic-lock="version" polymorphism="implicit" schema="pg_catalog" select-before-update="false" table="pg_proc">
+        <composite-id class="com.model.PgProcId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="proname" type="string">
+                <column length="64" name="proname"/>
+            </key-property>
+            <key-property name="pronamespace" type="int">
+                <column name="pronamespace"/>
+            </key-property>
+            <key-property name="proowner" type="int">
+                <column name="proowner"/>
+            </key-property>
+            <key-property name="prolang" type="int">
+                <column name="prolang"/>
+            </key-property>
+            <key-property name="procost" type="float">
+                <column name="procost" precision="4" scale="0"/>
+            </key-property>
+            <key-property name="prorows" type="float">
+                <column name="prorows" precision="4" scale="0"/>
+            </key-property>
+            <key-property name="provariadic" type="int">
+                <column name="provariadic"/>
+            </key-property>
+            <key-property name="protransform" type="serializable">
+                <column name="protransform"/>
+            </key-property>
+            <key-property name="proisagg" type="boolean">
+                <column name="proisagg"/>
+            </key-property>
+            <key-property name="proiswindow" type="boolean">
+                <column name="proiswindow"/>
+            </key-property>
+            <key-property name="prosecdef" type="boolean">
+                <column name="prosecdef"/>
+            </key-property>
+            <key-property name="proleakproof" type="boolean">
+                <column name="proleakproof"/>
+            </key-property>
+            <key-property name="proisstrict" type="boolean">
+                <column name="proisstrict"/>
+            </key-property>
+            <key-property name="proretset" type="boolean">
+                <column name="proretset"/>
+            </key-property>
+            <key-property name="provolatile" type="serializable">
+                <column name="provolatile"/>
+            </key-property>
+            <key-property name="proparallel" type="serializable">
+                <column name="proparallel"/>
+            </key-property>
+            <key-property name="pronargs" type="short">
+                <column name="pronargs"/>
+            </key-property>
+            <key-property name="pronargdefaults" type="short">
+                <column name="pronargdefaults"/>
+            </key-property>
+            <key-property name="prorettype" type="int">
+                <column name="prorettype"/>
+            </key-property>
+            <key-property name="proargtypes" type="serializable">
+                <column name="proargtypes"/>
+            </key-property>
+            <key-property name="proallargtypes" type="serializable">
+                <column name="proallargtypes"/>
+            </key-property>
+            <key-property name="proargmodes" type="serializable">
+                <column name="proargmodes"/>
+            </key-property>
+            <key-property name="proargnames" type="serializable">
+                <column name="proargnames"/>
+            </key-property>
+            <key-property name="proargdefaults" type="serializable">
+                <column name="proargdefaults"/>
+            </key-property>
+            <key-property name="protrftypes" type="serializable">
+                <column name="protrftypes"/>
+            </key-property>
+            <key-property name="prosrc" type="string">
+                <column name="prosrc"/>
+            </key-property>
+            <key-property name="probin" type="string">
+                <column name="probin"/>
+            </key-property>
+            <key-property name="proconfig" type="serializable">
+                <column name="proconfig"/>
+            </key-property>
+            <key-property name="proacl" type="serializable">
+                <column name="proacl"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
