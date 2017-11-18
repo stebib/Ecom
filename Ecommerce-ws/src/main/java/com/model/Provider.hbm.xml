@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated Nov 4, 2017 10:45:48 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2017 10:10:38 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.model.Provider" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="provider">
         <composite-id class="com.model.ProviderId" mapped="false" name="id" unsaved-value="undefined">
             <key-property name="idCard" type="string">
-                <column length="64" name="ID_card"/>
-            </key-property>
-            <key-property name="firstname" type="string">
-                <column length="64" name="Firstname"/>
-            </key-property>
-            <key-property name="lastName" type="string">
-                <column length="64" name="LastName"/>
-            </key-property>
-            <key-property name="profession" type="string">
-                <column length="64" name="Profession"/>
+                <column length="64" name="id_card"/>
             </key-property>
             <key-property name="login" type="string">
-                <column length="64" name="Login"/>
-            </key-property>
-            <key-property name="password" type="string">
-                <column length="64" name="Password"/>
-            </key-property>
-            <key-property name="socialStatus" type="string">
-                <column length="64" name="SocialStatus"/>
-            </key-property>
-            <key-property name="birthDate" type="date">
-                <column length="4" name="BirthDate"/>
+                <column length="64" name="login"/>
             </key-property>
         </composite-id>
+        <property generated="never" lazy="false" name="firstname" optimistic-lock="true" type="string" unique="false">
+            <column length="64" name="firstname" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column length="64" name="password" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="profession" optimistic-lock="true" type="string" unique="false">
+            <column length="64" name="profession" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="birthdate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="8" name="birthdate" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="lastname" optimistic-lock="true" type="string" unique="false">
+            <column length="64" name="lastname" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="socialstatus" optimistic-lock="true" type="string" unique="false">
+            <column length="64" name="socialstatus" not-null="true"/>
+        </property>
     </class>
 </hibernate-mapping>

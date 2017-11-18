@@ -1,5 +1,5 @@
 package com.model;
-// Generated Nov 4, 2017 10:45:47 PM by Hibernate Tools 5.2.5.Final
+// Generated Nov 18, 2017 10:10:38 PM by Hibernate Tools 5.2.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -21,7 +21,7 @@ public class PersonId implements java.io.Serializable {
 		this.login = login;
 	}
 
-	@Column(name = "ID_card", nullable = false, length = 64)
+	@Column(name = "id_card", nullable = false, length = 64)
 	public String getIdCard() {
 		return this.idCard;
 	}
@@ -30,7 +30,7 @@ public class PersonId implements java.io.Serializable {
 		this.idCard = idCard;
 	}
 
-	@Column(name = "Login", nullable = false, length = 64)
+	@Column(name = "login", nullable = false, length = 64)
 	public String getLogin() {
 		return this.login;
 	}

@@ -1,5 +1,5 @@
 package com.model;
-// Generated Nov 4, 2017 10:45:47 PM by Hibernate Tools 5.2.5.Final
+// Generated Nov 18, 2017 10:10:38 PM by Hibernate Tools 5.2.5.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -26,12 +26,13 @@ public class Orders implements java.io.Serializable {
 
 	@EmbeddedId
 
-	@AttributeOverrides({ @AttributeOverride(name = "date", column = @Column(name = "Date", length = 4)),
-			@AttributeOverride(name = "time", column = @Column(name = "Time", length = 8)),
-			@AttributeOverride(name = "quantity", column = @Column(name = "Quantity")),
-			@AttributeOverride(name = "cost", column = @Column(name = "Cost", precision = 8, scale = 0)),
-			@AttributeOverride(name = "idCard", column = @Column(name = "ID_Card", length = 64)),
-			@AttributeOverride(name = "idProduct", column = @Column(name = "ID_Product")) })
+	@AttributeOverrides({
+			@AttributeOverride(name = "cost", column = @Column(name = "cost", nullable = false, precision = 8, scale = 0)),
+			@AttributeOverride(name = "date", column = @Column(name = "date", nullable = false, length = 8)),
+			@AttributeOverride(name = "idCard", column = @Column(name = "id_card", nullable = false, length = 64)),
+			@AttributeOverride(name = "idProduct", column = @Column(name = "id_product", nullable = false)),
+			@AttributeOverride(name = "quantity", column = @Column(name = "quantity", nullable = false)),
+			@AttributeOverride(name = "time", column = @Column(name = "time", nullable = false, length = 8)) })
 	public OrdersId getId() {
 		return this.id;
 	}

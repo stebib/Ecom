@@ -1,5 +1,5 @@
 package com.model;
-// Generated Nov 4, 2017 10:45:47 PM by Hibernate Tools 5.2.5.Final
+// Generated Nov 18, 2017 10:10:38 PM by Hibernate Tools 5.2.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,7 +32,7 @@ public class Product implements java.io.Serializable {
 
 	@Id
 
-	@Column(name = "ID_Product", nullable = false, length = 64)
+	@Column(name = "id_product", unique = true, nullable = false, length = 64)
 	public String getIdProduct() {
 		return this.idProduct;
 	}
@@ -41,7 +41,7 @@ public class Product implements java.io.Serializable {
 		this.idProduct = idProduct;
 	}
 
-	@Column(name = "Name", length = 64)
+	@Column(name = "name", length = 64)
 	public String getName() {
 		return this.name;
 	}
@@ -50,7 +50,7 @@ public class Product implements java.io.Serializable {
 		this.name = name;
 	}
 
-	@Column(name = "Price", precision = 8, scale = 0)
+	@Column(name = "price", precision = 8, scale = 0)
 	public Double getPrice() {
 		return this.price;
 	}

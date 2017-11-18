@@ -1,5 +1,5 @@
 package com.model;
-// Generated Nov 4, 2017 10:45:47 PM by Hibernate Tools 5.2.5.Final
+// Generated Nov 18, 2017 10:10:38 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -11,26 +11,35 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class OrdersId implements java.io.Serializable {
 
+	private double cost;
 	private Date date;
-	private Date time;
-	private Integer quantity;
-	private Double cost;
 	private String idCard;
-	private Integer idProduct;
+	private int idProduct;
+	private int quantity;
+	private Date time;
 
 	public OrdersId() {
 	}
 
-	public OrdersId(Date date, Date time, Integer quantity, Double cost, String idCard, Integer idProduct) {
-		this.date = date;
-		this.time = time;
-		this.quantity = quantity;
+	public OrdersId(double cost, Date date, String idCard, int idProduct, int quantity, Date time) {
 		this.cost = cost;
+		this.date = date;
 		this.idCard = idCard;
 		this.idProduct = idProduct;
+		this.quantity = quantity;
+		this.time = time;
 	}
 
-	@Column(name = "Date", length = 4)
+	@Column(name = "cost", nullable = false, precision = 8, scale = 0)
+	public double getCost() {
+		return this.cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	@Column(name = "date", nullable = false, length = 8)
 	public Date getDate() {
 		return this.date;
 	}
@@ -39,34 +48,7 @@ public class OrdersId implements java.io.Serializable {
 		this.date = date;
 	}
 
-	@Column(name = "Time", length = 8)
-	public Date getTime() {
-		return this.time;
-	}
-
-	public void setTime(Date time) {
-		this.time = time;
-	}
-
-	@Column(name = "Quantity")
-	public Integer getQuantity() {
-		return this.quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
-	@Column(name = "Cost", precision = 8, scale = 0)
-	public Double getCost() {
-		return this.cost;
-	}
-
-	public void setCost(Double cost) {
-		this.cost = cost;
-	}
-
-	@Column(name = "ID_Card", length = 64)
+	@Column(name = "id_card", nullable = false, length = 64)
 	public String getIdCard() {
 		return this.idCard;
 	}
@@ -75,13 +57,31 @@ public class OrdersId implements java.io.Serializable {
 		this.idCard = idCard;
 	}
 
-	@Column(name = "ID_Product")
-	public Integer getIdProduct() {
+	@Column(name = "id_product", nullable = false)
+	public int getIdProduct() {
 		return this.idProduct;
 	}
 
-	public void setIdProduct(Integer idProduct) {
+	public void setIdProduct(int idProduct) {
 		this.idProduct = idProduct;
+	}
+
+	@Column(name = "quantity", nullable = false)
+	public int getQuantity() {
+		return this.quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	@Column(name = "time", nullable = false, length = 8)
+	public Date getTime() {
+		return this.time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	public boolean equals(Object other) {
@@ -93,29 +93,25 @@ public class OrdersId implements java.io.Serializable {
 			return false;
 		OrdersId castOther = (OrdersId) other;
 
-		return ((this.getDate() == castOther.getDate()) || (this.getDate() != null && castOther.getDate() != null
-				&& this.getDate().equals(castOther.getDate())))
-				&& ((this.getTime() == castOther.getTime()) || (this.getTime() != null && castOther.getTime() != null
-						&& this.getTime().equals(castOther.getTime())))
-				&& ((this.getQuantity() == castOther.getQuantity()) || (this.getQuantity() != null
-						&& castOther.getQuantity() != null && this.getQuantity().equals(castOther.getQuantity())))
-				&& ((this.getCost() == castOther.getCost()) || (this.getCost() != null && castOther.getCost() != null
-						&& this.getCost().equals(castOther.getCost())))
+		return (this.getCost() == castOther.getCost())
+				&& ((this.getDate() == castOther.getDate()) || (this.getDate() != null && castOther.getDate() != null
+						&& this.getDate().equals(castOther.getDate())))
 				&& ((this.getIdCard() == castOther.getIdCard()) || (this.getIdCard() != null
 						&& castOther.getIdCard() != null && this.getIdCard().equals(castOther.getIdCard())))
-				&& ((this.getIdProduct() == castOther.getIdProduct()) || (this.getIdProduct() != null
-						&& castOther.getIdProduct() != null && this.getIdProduct().equals(castOther.getIdProduct())));
+				&& (this.getIdProduct() == castOther.getIdProduct()) && (this.getQuantity() == castOther.getQuantity())
+				&& ((this.getTime() == castOther.getTime()) || (this.getTime() != null && castOther.getTime() != null
+						&& this.getTime().equals(castOther.getTime())));
 	}
 
 	public int hashCode() {
 		int result = 17;
 
+		result = 37 * result + (int) this.getCost();
 		result = 37 * result + (getDate() == null ? 0 : this.getDate().hashCode());
-		result = 37 * result + (getTime() == null ? 0 : this.getTime().hashCode());
-		result = 37 * result + (getQuantity() == null ? 0 : this.getQuantity().hashCode());
-		result = 37 * result + (getCost() == null ? 0 : this.getCost().hashCode());
 		result = 37 * result + (getIdCard() == null ? 0 : this.getIdCard().hashCode());
-		result = 37 * result + (getIdProduct() == null ? 0 : this.getIdProduct().hashCode());
+		result = 37 * result + this.getIdProduct();
+		result = 37 * result + this.getQuantity();
+		result = 37 * result + (getTime() == null ? 0 : this.getTime().hashCode());
 		return result;
 	}
 

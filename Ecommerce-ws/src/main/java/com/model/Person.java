@@ -1,5 +1,5 @@
 package com.model;
-// Generated Nov 4, 2017 10:45:47 PM by Hibernate Tools 5.2.5.Final
+// Generated Nov 18, 2017 10:10:38 PM by Hibernate Tools 5.2.5.Final
 
 import java.util.Date;
 import javax.persistence.AttributeOverride;
@@ -20,11 +20,11 @@ public class Person implements java.io.Serializable {
 
 	private PersonId id;
 	private String firstname;
-	private String lastName;
-	private String profession;
 	private String password;
-	private String socialStatus;
-	private Date birthDate;
+	private String profession;
+	private Date birthdate;
+	private String lastname;
+	private String socialstatus;
 
 	public Person() {
 	}
@@ -33,22 +33,22 @@ public class Person implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Person(PersonId id, String firstname, String lastName, String profession, String password,
-			String socialStatus, Date birthDate) {
+	public Person(PersonId id, String firstname, String password, String profession, Date birthdate, String lastname,
+			String socialstatus) {
 		this.id = id;
 		this.firstname = firstname;
-		this.lastName = lastName;
-		this.profession = profession;
 		this.password = password;
-		this.socialStatus = socialStatus;
-		this.birthDate = birthDate;
+		this.profession = profession;
+		this.birthdate = birthdate;
+		this.lastname = lastname;
+		this.socialstatus = socialstatus;
 	}
 
 	@EmbeddedId
 
 	@AttributeOverrides({
-			@AttributeOverride(name = "idCard", column = @Column(name = "ID_card", nullable = false, length = 64)),
-			@AttributeOverride(name = "login", column = @Column(name = "Login", nullable = false, length = 64)) })
+			@AttributeOverride(name = "idCard", column = @Column(name = "id_card", nullable = false, length = 64)),
+			@AttributeOverride(name = "login", column = @Column(name = "login", nullable = false, length = 64)) })
 	public PersonId getId() {
 		return this.id;
 	}
@@ -57,7 +57,7 @@ public class Person implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "Firstname", length = 64)
+	@Column(name = "firstname", length = 64)
 	public String getFirstname() {
 		return this.firstname;
 	}
@@ -66,25 +66,7 @@ public class Person implements java.io.Serializable {
 		this.firstname = firstname;
 	}
 
-	@Column(name = "LastName", length = 64)
-	public String getLastName() {
-		return this.lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	@Column(name = "Profession", length = 64)
-	public String getProfession() {
-		return this.profession;
-	}
-
-	public void setProfession(String profession) {
-		this.profession = profession;
-	}
-
-	@Column(name = "Password", length = 64)
+	@Column(name = "password", length = 64)
 	public String getPassword() {
 		return this.password;
 	}
@@ -93,23 +75,41 @@ public class Person implements java.io.Serializable {
 		this.password = password;
 	}
 
-	@Column(name = "SocialStatus", length = 64)
-	public String getSocialStatus() {
-		return this.socialStatus;
+	@Column(name = "profession", length = 64)
+	public String getProfession() {
+		return this.profession;
 	}
 
-	public void setSocialStatus(String socialStatus) {
-		this.socialStatus = socialStatus;
+	public void setProfession(String profession) {
+		this.profession = profession;
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "BirthDate", length = 4)
-	public Date getBirthDate() {
-		return this.birthDate;
+	@Column(name = "birthdate", length = 4)
+	public Date getBirthdate() {
+		return this.birthdate;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	@Column(name = "lastname", length = 64)
+	public String getLastname() {
+		return this.lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	@Column(name = "socialstatus", length = 64)
+	public String getSocialstatus() {
+		return this.socialstatus;
+	}
+
+	public void setSocialstatus(String socialstatus) {
+		this.socialstatus = socialstatus;
 	}
 
 }
