@@ -23,7 +23,10 @@ public class ClientController {
 
 	@RequestMapping(value = "/deleteClient", method = RequestMethod.POST)
 	@ResponseBody
-	public String delete(String idcard, String login) {
+	public com.util.ResponseBody delete(String idcard, String login) {
+		com.util.ResponseBody rspb = new com.util.ResponseBody();
+		Message msg = new Message();
+		MessageBean msgbean = new MessageBean();
 		try {
 			Client client = new Client();
 			ClientId clientid = new ClientId();
@@ -32,9 +35,17 @@ public class ClientController {
 			client.setId(clientid);
 			_clientDao.delete(client);
 		} catch (Exception ex) {
-			return ex.getMessage();
+			msg.setText(ex.getMessage());
+			msgbean.setMsg(msg);
+			msgbean.setSuccess(false);
+			rspb.setMsgbean(msgbean);
+			return rspb;
 		}
-		return "client succesfully deleted!";
+		msg.setText("client succesfully deleted");
+		msgbean.setMsg(msg);
+		msgbean.setSuccess(true);
+		rspb.setMsgbean(msgbean);
+		return rspb;
 	}
 
 	@SuppressWarnings("unchecked")
