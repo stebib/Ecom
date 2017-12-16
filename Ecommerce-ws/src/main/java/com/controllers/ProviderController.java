@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dao.ProviderIDao;
+import com.business.ProviderBusiness;
 import com.model.Provider;
 import com.model.ProviderId;
 import com.util.Message;
@@ -19,7 +19,7 @@ import com.util.MessageBean;
 @RequestMapping(value = "/provider", produces = "application/hal+json")
 public class ProviderController {
 	@Autowired
-	private ProviderIDao _providerDao;
+	private ProviderBusiness _providerBusiness;
 
 	@RequestMapping(value = "/deletProvider", method = RequestMethod.POST)
 	@ResponseBody
@@ -30,7 +30,7 @@ public class ProviderController {
 			providerid.setIdCard(idcard);
 			providerid.setLogin(login);
 			provider.setId(providerid);
-			_providerDao.delete(provider);
+			_providerBusiness.removeProvider(provider);
 		} catch (Exception ex) {
 			return ex.getMessage();
 		}
@@ -48,7 +48,7 @@ public class ProviderController {
 
 		try {
 
-			provider = (List<Provider>) (Object) _providerDao.findAll(Provider.class);
+			provider = _providerBusiness.getAllProvider(Provider.class);
 
 			// providerId = String.valueOf(provider.getId());
 		} catch (Exception ex) {
@@ -76,7 +76,7 @@ public class ProviderController {
 			ProviderId clid = new ProviderId();
 			clid.setIdCard(idcard);
 			clid.setLogin(login);
-			Provider provider = (Provider) _providerDao.findById(Provider.class, clid);
+			Provider provider = _providerBusiness.getProviderById(Provider.class, clid);
 			providerId = String.valueOf(provider.getId());
 			listprovider.add(provider);
 		} catch (Exception ex) {
@@ -109,7 +109,7 @@ public class ProviderController {
 			provider.setPassword(password);
 			provider.setProfession(profession);
 			provider.setSocialstatus(socialstatus);
-			_providerDao.save(provider);
+			_providerBusiness.signUpProvider(provider);
 		} catch (Exception ex) {
 			msg.setText(ex.getMessage());
 			msgbean.setMsg(msg);

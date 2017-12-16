@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dao.ClientIDao;
+import com.business.ClientBusiness;
 import com.model.Client;
 import com.model.ClientId;
 import com.util.Message;
@@ -19,7 +19,7 @@ import com.util.MessageBean;
 @RequestMapping(value = "/client", produces = "application/hal+json")
 public class ClientController {
 	@Autowired
-	private ClientIDao _clientDao;
+	private ClientBusiness _clientBusiness;
 
 	@RequestMapping(value = "/deleteClient", method = RequestMethod.POST)
 	@ResponseBody
@@ -33,7 +33,7 @@ public class ClientController {
 			clientid.setIdCard(idcard);
 			clientid.setLogin(login);
 			client.setId(clientid);
-			_clientDao.delete(client);
+			_clientBusiness.removeClient(client);
 		} catch (Exception ex) {
 			msg.setText(ex.getMessage());
 			msgbean.setMsg(msg);
@@ -59,7 +59,7 @@ public class ClientController {
 
 		try {
 
-			client = (List<Client>) (Object) _clientDao.findAll(Client.class);
+			client = _clientBusiness.getAllClient(Client.class);
 
 			// clientId = String.valueOf(client.getId());
 		} catch (Exception ex) {
@@ -87,7 +87,7 @@ public class ClientController {
 			ClientId clid = new ClientId();
 			clid.setIdCard(idcard);
 			clid.setLogin(login);
-			Client client = (Client) _clientDao.findById(Client.class, clid);
+			Client client = _clientBusiness.getClientById(Client.class, clid);
 			clientId = String.valueOf(client.getId());
 			listclient.add(client);
 		} catch (Exception ex) {
@@ -120,7 +120,7 @@ public class ClientController {
 			client.setPassword(password);
 			client.setProfession(profession);
 			client.setSocialstatus(socialstatus);
-			_clientDao.save(client);
+			_clientBusiness.signUpClient(client);
 		} catch (Exception ex) {
 			msg.setText(ex.getMessage());
 			msgbean.setMsg(msg);

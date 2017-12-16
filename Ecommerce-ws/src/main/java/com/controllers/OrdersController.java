@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dao.OrdersIDao;
+import com.business.OrdersBusiness;
 import com.model.Orders;
 import com.model.OrdersId;
 import com.util.Message;
@@ -20,7 +20,7 @@ import com.util.MessageBean;
 @RequestMapping(value = "/orders", produces = "application/hal+json")
 public class OrdersController {
 	@Autowired
-	private OrdersIDao _ordersDao;
+	private OrdersBusiness _ordersBusiness;
 
 	@RequestMapping(value = "/deletOrders", method = RequestMethod.POST)
 	@ResponseBody
@@ -35,7 +35,7 @@ public class OrdersController {
 			ordersid.setTime(time);
 			ordersid.setQuantity(quantity);
 			orders.setId(ordersid);
-			_ordersDao.delete(orders);
+			_ordersBusiness.removeOrders(orders);
 		} catch (Exception ex) {
 			return ex.getMessage();
 		}
@@ -45,7 +45,7 @@ public class OrdersController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/getAllOrders", method = RequestMethod.GET)
 	@ResponseBody
-	public com.util.ResponseBody getAllOrderss() {
+	public com.util.ResponseBody getAllOrders() {
 
 		List<Orders> orders = null;
 		com.util.ResponseBody rspb = new com.util.ResponseBody();
@@ -53,7 +53,7 @@ public class OrdersController {
 
 		try {
 
-			orders = (List<Orders>) (Object) _ordersDao.findAll(Orders.class);
+			orders = _ordersBusiness.getAllOrders(Orders.class);
 
 			// ordersId = String.valueOf(orders.getId());
 		} catch (Exception ex) {
@@ -79,7 +79,7 @@ public class OrdersController {
 		List<Orders> listorders = new ArrayList<Orders>();
 		try {
 
-			Orders orders = (Orders) _ordersDao.findById(Orders.class, idorders);
+			Orders orders = _ordersBusiness.getOrdersById(Orders.class, idorders);
 
 			listorders.add(orders);
 		} catch (Exception ex) {
@@ -113,7 +113,7 @@ public class OrdersController {
 			ordersid.setTime(time);
 			ordersid.setQuantity(quantity);
 			orders.setId(ordersid);
-			_ordersDao.save(orders);
+			_ordersBusiness.addOrders(orders);
 		} catch (Exception ex) {
 			msg.setText(ex.getMessage());
 			msgbean.setMsg(msg);

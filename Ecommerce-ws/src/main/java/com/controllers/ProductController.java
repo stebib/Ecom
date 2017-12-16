@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dao.ProductIDao;
+import com.business.ProductBusiness;
 import com.model.Product;
 import com.util.Message;
 import com.util.MessageBean;
@@ -18,7 +18,7 @@ import com.util.MessageBean;
 @RequestMapping(value = "/product", produces = "application/hal+json")
 public class ProductController {
 	@Autowired
-	private ProductIDao _productDao;
+	private ProductBusiness _productBusiness;
 
 	@RequestMapping(value = "/deletProduct", method = RequestMethod.POST)
 	@ResponseBody
@@ -26,7 +26,7 @@ public class ProductController {
 		try {
 			Product product = new Product();
 			product.setIdProduct(idproduct);
-			_productDao.delete(product);
+			_productBusiness.removeProduct(product);
 		} catch (Exception ex) {
 			return ex.getMessage();
 		}
@@ -44,7 +44,7 @@ public class ProductController {
 
 		try {
 
-			product = (List<Product>) (Object) _productDao.findAll(Product.class);
+			product = _productBusiness.getAllProduct(Product.class);
 
 			// productId = String.valueOf(product.getId());
 		} catch (Exception ex) {
@@ -70,7 +70,7 @@ public class ProductController {
 		List<Product> listproduct = new ArrayList<Product>();
 		try {
 
-			Product product = (Product) _productDao.findById(Product.class, idproduct);
+			Product product = _productBusiness.getProductById(Product.class, idproduct);
 
 			listproduct.add(product);
 		} catch (Exception ex) {
@@ -99,7 +99,7 @@ public class ProductController {
 			product.setIdProduct(idProduct);
 			product.setName(name);
 			product.setPrice(price);
-			_productDao.save(product);
+			_productBusiness.addProduct(product);
 		} catch (Exception ex) {
 			msg.setText(ex.getMessage());
 			msgbean.setMsg(msg);
