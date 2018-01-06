@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.business.ClientBusiness;
 import com.model.Client;
@@ -15,8 +18,9 @@ import com.model.ClientId;
 import com.util.Message;
 import com.util.MessageBean;
 
-@Controller
-@RequestMapping(value = "/client", produces = "application/hal+json")
+@RestController
+@RequestMapping(value = "/client", produces = "application/x-www-form-urlencoded+json")
+@CrossOrigin("*")
 public class ClientController {
 	@Autowired
 	private ClientBusiness _clientBusiness;
@@ -134,6 +138,30 @@ public class ClientController {
 		rspb.setMsgbean(msgbean);
 		return rspb;
 
+	}
+
+	@PostMapping(value = "/loginClient")
+	@ResponseBody
+	public com.util.ResponseBody loginClient(@RequestBody Client clientBody) {
+		com.util.ResponseBody rspb = new com.util.ResponseBody();
+		Message msg = new Message();
+		MessageBean msgbean = new MessageBean();
+		try {
+			ClientId clid = new ClientId();
+			clid.setLogin(clientBody.getId().getLogin());
+			Client client = new Client();
+			client.setId(clid);
+			client.setPassword(clientBody.getPassword());
+			msgbean = _clientBusiness.login(client.getId().getLogin(), client.getPassword());
+		} catch (Exception ex) {
+			msgbean.setSuccess(false);
+			msg.setText("Server problem");
+			msgbean.setMsg(msg);
+			rspb.setMsgbean(msgbean);
+			return rspb;
+		}
+		rspb.setMsgbean(msgbean);
+		return rspb;
 	}
 
 } // class clientController

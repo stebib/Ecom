@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.business.ClientBusiness;
 import com.dao.ClientIDao;
 import com.model.Client;
+import com.util.MessageBean;
 
 @Repository
 @Transactional
@@ -48,5 +49,11 @@ public class ClientBusinessImpl implements ClientBusiness {
 	public Client getClientById(Class clazz, Serializable id) {
 		// TODO Auto-generated method stub
 		return (Client) _clientDao.findById(Client.class, id);
+	}
+
+	@Override
+	public MessageBean login(String login, String password) {
+		// TODO Auto-generated method stub
+		return _clientDao.login(login, password);
 	}
 }
